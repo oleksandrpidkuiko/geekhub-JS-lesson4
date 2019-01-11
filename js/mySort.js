@@ -1,20 +1,23 @@
 'use strict';
 
-const ARRAY = [5,-10,1,0,4,0];
+let ARRAY = [5,-10,1,0,4,0];
 
-function mySort(array) {
-    for (let i = 0; i < array.length - 1; i++) {
-        for (let j = 0; j < array.length - 1 - i; j++) {
-            if (array[j + 1] < array[j]) {
-                let buf = array[j + 1];
-                array[j + 1] = array[j];
-                array[j] = buf;
+Array.prototype.mySort = function() {
+    for (let i = 0; i < this.length - 1; i++) {
+
+        for (let j = 0; j < this.length - 1 - i; j++) {
+
+            if (this[j + 1] < this[j]) {
+                let buf = this[j + 1];
+
+                this[j + 1] = this[j];
+                this[j] = buf;
             }
         }
     }
-    return array;
-}
+    return this;
+};
 
 console.log(ARRAY);
-let sortArray = mySort(ARRAY);
-console.log(sortArray);
+ARRAY.mySort();
+console.log(ARRAY);

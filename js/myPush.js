@@ -2,9 +2,9 @@
 
 let pushArray = [3,0,-2];
 
-function myPush(array, element) {
-    array[array.length] = element
-}
+Array.prototype.myPush = function myPush(element) {
+    this[this.length] = element;
+};
 
-myPush(pushArray,{a: -1});
+pushArray.myPush({a: -1});
 console.log(pushArray);
